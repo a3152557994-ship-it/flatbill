@@ -5,7 +5,7 @@
   ],
   "products" : [
     {
-      "displayPrice" : "19.99",
+      "displayPrice" : "29.99",
       "familyShareable" : true,
       "internalID" : "FB_LIFE_001",
       "localizations" : [
@@ -61,24 +61,24 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "9.99",
+          "displayPrice" : "19.99",
           "familyShareable" : true,
           "groupNumber" : 1,
           "internalID" : "FB_YEAR_001",
           "introductoryOffer" : {
-            "internalID" : "FB_TRIAL_3D",
+            "internalID" : "FB_TRIAL_7D",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
-            "subscriptionPeriod" : "P3D"
+            "subscriptionPeriod" : "P7D"
           },
           "localizations" : [
             {
-              "description" : "3-day free trial, then annual unlimited PDF invoices, estimates & all pro themes.",
+              "description" : "7-day free trial, then annual unlimited PDF invoices, estimates & all pro themes.",
               "displayName" : "FlatBill Pro Annual",
               "locale" : "en_US"
             },
             {
-              "description" : "含3天免费试用，全年无限导出PDF报价单发票与全部模板。",
+              "description" : "含7天免费试用，全年无限导出PDF报价单发票与全部模板。",
               "displayName" : "FlatBill Pro 年度版",
               "locale" : "zh_CN"
             }
@@ -96,7 +96,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "2.99",
+          "displayPrice" : "6.99",
           "familyShareable" : true,
           "groupNumber" : 2,
           "internalID" : "FB_MONTH_001",

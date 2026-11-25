@@ -11,6 +11,7 @@
 		55DBE523967E7D93E97C06BC /* app_res::InfoPlist.strings */ = {isa = PBXBuildFile; fileRef = A19687CA5E8A7DBF0441A786; };
 		4A2A263DCA254C411783A692 /* app_res::PrivacyInfo.xcprivacy */ = {isa = PBXBuildFile; fileRef = 16B31B00E1BF548B2FA581CE; };
 		9BE73CD34371B080E33FB98B /* app_src::Sources/FlatBillApp.swift */ = {isa = PBXBuildFile; fileRef = 2C305CE18F700474F5C9FF7B; };
+		A17C19E851CFCC5AF87F1BA1 /* app_src::Sources/Services/GrowthKit.swift */ = {isa = PBXBuildFile; fileRef = FE5691E87B53F4019ED9C85C; };
 		425018B7D60020CBF42267B2 /* app_src::Sources/Services/LedgerStore.swift */ = {isa = PBXBuildFile; fileRef = B6F320A11E2C048DCE047263; };
 		EC0CAB20C248F3C97D689E31 /* app_src::Sources/Services/PDFInvoiceRenderer.swift */ = {isa = PBXBuildFile; fileRef = 98301C61AD9950629D0DB8A3; };
 		8E72225BB05B7ED862C8DDB8 /* app_src::Sources/Services/StoreManager.swift */ = {isa = PBXBuildFile; fileRef = 54C42B5843D4CC8F19200AA4; };
@@ -22,6 +23,7 @@
 		203A119219F88E5820628700 /* app_src::Sources/Views/DocumentPreviewView.swift */ = {isa = PBXBuildFile; fileRef = E0A2A9CA70F74C4E83659D22; };
 		4A99ADCB73F5CFD5A6EFC7D9 /* app_src::Sources/Views/DocumentsHomeView.swift */ = {isa = PBXBuildFile; fileRef = 98F8569145F2A765F39E055A; };
 		4F0F3454B2692A7277F56855 /* app_src::Sources/Views/MainTabView.swift */ = {isa = PBXBuildFile; fileRef = 1356900129314D31620C2660; };
+		6F98B8E326DDC6F085D978CF /* app_src::Sources/Views/OnboardingView.swift */ = {isa = PBXBuildFile; fileRef = B99A17EAC6BB469566720358; };
 		1179E9720F3386D294A7262A /* app_src::Sources/Views/PaywallView.swift */ = {isa = PBXBuildFile; fileRef = 7B5D2E311A5BD5DF5756E89D; };
 		866D01BDB1BA8E8C740A6638 /* app_src::Sources/Views/PriceBookView.swift */ = {isa = PBXBuildFile; fileRef = 57549E5E829955D57247095E; };
 		B4099433945F71DBC1220E0B /* app_src::Sources/Views/SettingsView.swift */ = {isa = PBXBuildFile; fileRef = D9062D9595371FAF96065A17; };
@@ -48,7 +50,9 @@
 		16B31B00E1BF548B2FA581CE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "PrivacyInfo.xcprivacy"; path = "Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
 		6D8EBA16405712AE16940E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en"; path = "Resources/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		1D3058F65FB06B4298546429 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		45069DA4F30F28EBFAEE6D45 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "Resources/zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2C305CE18F700474F5C9FF7B /* FlatBillApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FlatBillApp.swift"; path = "Sources/FlatBillApp.swift"; sourceTree = "<group>"; };
+		FE5691E87B53F4019ED9C85C /* GrowthKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GrowthKit.swift"; path = "Sources/Services/GrowthKit.swift"; sourceTree = "<group>"; };
 		B6F320A11E2C048DCE047263 /* LedgerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LedgerStore.swift"; path = "Sources/Services/LedgerStore.swift"; sourceTree = "<group>"; };
 		98301C61AD9950629D0DB8A3 /* PDFInvoiceRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PDFInvoiceRenderer.swift"; path = "Sources/Services/PDFInvoiceRenderer.swift"; sourceTree = "<group>"; };
 		54C42B5843D4CC8F19200AA4 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StoreManager.swift"; path = "Sources/Services/StoreManager.swift"; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 		E0A2A9CA70F74C4E83659D22 /* DocumentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DocumentPreviewView.swift"; path = "Sources/Views/DocumentPreviewView.swift"; sourceTree = "<group>"; };
 		98F8569145F2A765F39E055A /* DocumentsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DocumentsHomeView.swift"; path = "Sources/Views/DocumentsHomeView.swift"; sourceTree = "<group>"; };
 		1356900129314D31620C2660 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MainTabView.swift"; path = "Sources/Views/MainTabView.swift"; sourceTree = "<group>"; };
+		B99A17EAC6BB469566720358 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OnboardingView.swift"; path = "Sources/Views/OnboardingView.swift"; sourceTree = "<group>"; };
 		7B5D2E311A5BD5DF5756E89D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PaywallView.swift"; path = "Sources/Views/PaywallView.swift"; sourceTree = "<group>"; };
 		57549E5E829955D57247095E /* PriceBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PriceBookView.swift"; path = "Sources/Views/PriceBookView.swift"; sourceTree = "<group>"; };
 		D9062D9595371FAF96065A17 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsView.swift"; path = "Sources/Views/SettingsView.swift"; sourceTree = "<group>"; };
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				2C305CE18F700474F5C9FF7B,
+				FE5691E87B53F4019ED9C85C,
 				B6F320A11E2C048DCE047263,
 				98301C61AD9950629D0DB8A3,
 				54C42B5843D4CC8F19200AA4,
@@ -113,6 +119,7 @@
 				E0A2A9CA70F74C4E83659D22,
 				98F8569145F2A765F39E055A,
 				1356900129314D31620C2660,
+				B99A17EAC6BB469566720358,
 				7B5D2E311A5BD5DF5756E89D,
 				57549E5E829955D57247095E,
 				D9062D9595371FAF96065A17,
@@ -250,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE73CD34371B080E33FB98B /* Sources/FlatBillApp.swift */,
+				A17C19E851CFCC5AF87F1BA1 /* Sources/Services/GrowthKit.swift */,
 				425018B7D60020CBF42267B2 /* Sources/Services/LedgerStore.swift */,
 				EC0CAB20C248F3C97D689E31 /* Sources/Services/PDFInvoiceRenderer.swift */,
 				8E72225BB05B7ED862C8DDB8 /* Sources/Services/StoreManager.swift */,
@@ -261,6 +269,7 @@
 				203A119219F88E5820628700 /* Sources/Views/DocumentPreviewView.swift */,
 				4A99ADCB73F5CFD5A6EFC7D9 /* Sources/Views/DocumentsHomeView.swift */,
 				4F0F3454B2692A7277F56855 /* Sources/Views/MainTabView.swift */,
+				6F98B8E326DDC6F085D978CF /* Sources/Views/OnboardingView.swift */,
 				1179E9720F3386D294A7262A /* Sources/Views/PaywallView.swift */,
 				866D01BDB1BA8E8C740A6638 /* Sources/Views/PriceBookView.swift */,
 				B4099433945F71DBC1220E0B /* Sources/Views/SettingsView.swift */,
@@ -288,6 +297,7 @@
 			children = (
 				6D8EBA16405712AE16940E13 /* en */,
 				1D3058F65FB06B4298546429 /* zh-Hans */,
+				45069DA4F30F28EBFAEE6D45 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -305,8 +315,8 @@
 				DEVELOPMENT_TEAM = KU364788TC;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0.0;
-				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 2;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
@@ -330,8 +340,8 @@
 				DEVELOPMENT_TEAM = KU364788TC;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0.0;
-				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 2;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;

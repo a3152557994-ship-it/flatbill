@@ -19,11 +19,13 @@ struct DocumentPreviewView: View {
     @State private var showSwapClientSheet = false
     @State private var showPaywall = false
     @State private var paywallMessage: String? = nil
+    @State private var paywallAmountText: String? = nil
     @State private var paywallFallbackLabel: String? = nil
     @State private var pendingFreeFallback: (() -> Void)? = nil
 
     @State private var shareURL: URL? = nil
     @State private var showShareSheet = false
+    @State private var showHappyReviewGate = false
     @State private var toastText: String? = nil
 
     private var doc: BillingDocument? {
@@ -190,10 +192,36 @@ struct DocumentPreviewView: View {
                         Button(L10n.t("Done", "完成")) { dismiss() }
                     }
                 }
-                .sheet(isPresented: $showShareSheet) {
+                .sheet(isPresented: $showShareSheet, onDismiss: {
+                    if ReviewPromptManager.shouldShowHappyGate(totalExports: store.totalSuccessfulExports) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+                            showHappyReviewGate = true
+                        }
+                    }
+                }) {
                     if let shareURL {
                         ShareSheet(items: [shareURL])
                     }
+                }
+                .alert(
+                    L10n.t("Enjoying FlatBill?", "FlatBill 用着顺手吗？", "FlatBill 用起來順手嗎？"),
+                    isPresented: $showHappyReviewGate
+                ) {
+                    Button(L10n.t("Yes, Love It!", "很顺手，支持一下！", "很順手，給個好評！")) {
+                        ReviewPromptManager.triggerNativeAppleReview()
+                    }
+                    Button(L10n.t("Needs Work (Send Feedback)", "有槽点，直接反馈开发者", "有建議，直接回報開發者")) {
+                        ReviewPromptManager.openSupportFeedbackEmail()
+                    }
+                    Button(L10n.t("Not Now", "以后再说", "稍後再說"), role: .cancel) {
+                        ReviewPromptManager.markPromptShown()
+                    }
+                } message: {
+                    Text(L10n.t(
+                        "A quick rating helps other small businesses ditch $240/yr subscriptions.",
+                        "您的 5 星好评能帮助更多独立师傅和小微老板告别高价订阅软件。",
+                        "您的 5 星好評能幫助更多接案師傅與小老闆告別高價訂閱軟體。"
+                    ))
                 }
                 .sheet(isPresented: $showPaymentSheet) {
                     recordPaymentSheet(for: doc)
@@ -204,6 +232,7 @@ struct DocumentPreviewView: View {
                 .sheet(isPresented: $showPaywall) {
                     PaywallView(
                         triggerMessage: paywallMessage,
+                        invoiceAmountText: paywallAmountText,
                         freeFallbackLabel: paywallFallbackLabel,
                         onFreeFallback: pendingFreeFallback
                     )
@@ -221,27 +250,34 @@ struct DocumentPreviewView: View {
     }
 
     private func triggerExportPDF(doc: BillingDocument, pdfData: Data) {
+        let formattedTotal = MoneyFormat.format(doc.total, currencyCode: doc.currencyCode)
+        paywallAmountText = doc.total > 0 ? formattedTotal : nil
+
         if doc.theme.isPro && !store.isPro {
             paywallMessage = L10n.t(
-                "Your \(doc.theme.title) PDF is ready! Unlock Lifetime Pro once to export all 4 pro themes with zero footer branding.",
-                "您的「\(doc.theme.title)」单据已排版就绪！一次买断即可无限导出全部 4 套专业模板并去除底部标识。"
+                "Your \(formattedTotal) \(doc.theme.title) PDF is ready! Unlock Pro once or try 7 days free to export all 4 themes with zero footer branding.",
+                "您的 \(formattedTotal)「\(doc.theme.title)」单据已排好！一次买断或先试 7 天，解锁全 4 套专业模板并去除底部标识。",
+                "您的 \(formattedTotal)「\(doc.theme.title)」單據已排好！一次買斷或先試 7 天，解鎖全 4 套專業範本並移除底部標示。"
             )
-            paywallFallbackLabel = L10n.t("Continue free with Classic Slate theme →", "暂不升级，改用免费的「经典商务灰」导出 →")
-            pendingFreeFallback = {
+            paywallFallbackLabel = store.canExportFreePDF
+                ? L10n.t("Continue free with Classic Slate theme →", "暂不升级，改用免费的「经典商务灰」导出 →", "暫不升級，改用免費「經典商務灰」匯出 →")
+                : nil
+            pendingFreeFallback = store.canExportFreePDF ? {
                 var freeDoc = doc
                 freeDoc.theme = .classicSlate
                 ledger.upsertDocument(freeDoc)
                 let freeData = PDFInvoiceRenderer.renderPDFData(document: freeDoc, profile: ledger.profile, includeBrandingFooter: true)
                 performActualShare(doc: freeDoc, pdfData: freeData)
-            }
+            } : nil
             showPaywall = true
             return
         }
 
         if !store.canExportFreePDF {
             paywallMessage = L10n.t(
-                "You've used all 3 free PDF exports this month. Unlock Lifetime Pro once (\(store.displayPrice(for: FlatBillProductID.lifetime))) for unlimited exports forever.",
-                "本月 3 次免费 PDF 导出已用完。一次买断（\(store.displayPrice(for: FlatBillProductID.lifetime))）即可终身无限导出。"
+                "You've used both free PDF exports. Start a 7-day free trial ($0 today) or unlock Lifetime Pro once (\(store.displayPrice(for: FlatBillProductID.lifetime))) to send this \(formattedTotal) document right now.",
+                "您的 2 次免费 PDF 导出体验已用完。0 元开启 7 天免费试用或一次买断（\(store.displayPrice(for: FlatBillProductID.lifetime))），立刻发出这张 \(formattedTotal) 单据。",
+                "您的 2 次免費 PDF 匯出體驗已用完。0 元開啟 7 天免費試用或一次買斷（\(store.displayPrice(for: FlatBillProductID.lifetime))），立刻寄出這張 \(formattedTotal) 單據。"
             )
             paywallFallbackLabel = nil
             pendingFreeFallback = nil
@@ -261,7 +297,10 @@ struct DocumentPreviewView: View {
         ledger.markAsSent(documentId: doc.id)
         if !store.isPro {
             store.recordPDFExport()
+        } else {
+            store.recordPDFExport()
         }
+        FunnelMetrics.record(.pdfExported)
         showShareSheet = true
     }
 

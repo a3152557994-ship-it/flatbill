@@ -12,7 +12,9 @@ enum FlatBillProductID {
 
 @MainActor
 final class StoreManager: ObservableObject {
-    static let freeMonthlyExportLimit = 3
+    /// Plug free-tier leak: 2 lifetime free PDF exports total (unlimited drafts & live PDF preview).
+    static let freeLifetimeExportLimit = 2
+    static let freeMonthlyExportLimit = 2
 
     @Published private(set) var products: [Product] = []
     @Published private(set) var isPro: Bool = false
@@ -20,11 +22,8 @@ final class StoreManager: ObservableObject {
     @Published private(set) var isPurchasing: Bool = false
     @Published var statusMessage: String?
 
-    @Published private(set) var exportsUsedThisMonth: Int = 0
     @Published private(set) var totalSuccessfulExports: Int = 0
 
-    private let monthKey = "flatbill.quota.month"
-    private let countKey = "flatbill.quota.count"
     private let totalKey = "flatbill.total.exports"
     private let proCacheKey = "flatbill.pro.cached"
 
@@ -33,7 +32,6 @@ final class StoreManager: ObservableObject {
     init() {
         isPro = UserDefaults.standard.bool(forKey: proCacheKey)
         totalSuccessfulExports = UserDefaults.standard.integer(forKey: totalKey)
-        syncMonthlyQuotaIfNeeded()
 
         updatesTask = Task {
             await listenForTransactions()
@@ -48,39 +46,21 @@ final class StoreManager: ObservableObject {
         updatesTask?.cancel()
     }
 
+    var remainingFreeExports: Int {
+        max(0, Self.freeLifetimeExportLimit - totalSuccessfulExports)
+    }
+
     var remainingFreeExportsThisMonth: Int {
-        max(0, Self.freeMonthlyExportLimit - exportsUsedThisMonth)
+        remainingFreeExports
     }
 
     var canExportFreePDF: Bool {
-        isPro || remainingFreeExportsThisMonth > 0
+        isPro || remainingFreeExports > 0
     }
 
     func recordPDFExport() {
-        syncMonthlyQuotaIfNeeded()
-        exportsUsedThisMonth += 1
         totalSuccessfulExports += 1
-        UserDefaults.standard.set(exportsUsedThisMonth, forKey: countKey)
         UserDefaults.standard.set(totalSuccessfulExports, forKey: totalKey)
-    }
-
-    func syncMonthlyQuotaIfNeeded() {
-        let stamp = Self.monthStamp()
-        let saved = UserDefaults.standard.string(forKey: monthKey)
-        if saved != stamp {
-            UserDefaults.standard.set(stamp, forKey: monthKey)
-            UserDefaults.standard.set(0, forKey: countKey)
-            exportsUsedThisMonth = 0
-        } else {
-            exportsUsedThisMonth = UserDefaults.standard.integer(forKey: countKey)
-        }
-    }
-
-    private static func monthStamp() -> String {
-        let fmt = DateFormatter()
-        fmt.calendar = Calendar(identifier: .gregorian)
-        fmt.dateFormat = "yyyy-MM"
-        return fmt.string(from: Date())
     }
 
     func product(for id: String) -> Product? {
@@ -92,9 +72,9 @@ final class StoreManager: ObservableObject {
             return p.displayPrice
         }
         switch id {
-        case FlatBillProductID.lifetime: return L10n.t("$19.99", "¥68")
-        case FlatBillProductID.yearly: return L10n.t("$9.99", "¥38")
-        case FlatBillProductID.monthly: return L10n.t("$2.99", "¥12")
+        case FlatBillProductID.lifetime: return L10n.t("$29.99", "¥98", "HK$148")
+        case FlatBillProductID.yearly: return L10n.t("$19.99", "¥58", "HK$88")
+        case FlatBillProductID.monthly: return L10n.t("$6.99", "¥18", "HK$28")
         default: return ""
         }
     }
@@ -200,13 +180,14 @@ final class StoreManager: ObservableObject {
         center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
             guard granted else { return }
             let content = UNMutableNotificationContent()
-            content.title = L10n.t("FlatBill · Free Trial Ends Tomorrow", "FlatBill · 免费试用明天到期")
+            content.title = L10n.t("FlatBill · Free Trial Ends in 2 Days", "FlatBill · 7 天免费试用还剩 2 天", "FlatBill · 7 天免費試用還剩 2 天")
             content.body = L10n.t(
-                "Your 3-day free trial ends in 24 hours. Cancel anytime in iOS Settings > Subscriptions if you don't wish to renew.",
-                "您的 3 天免费试用还剩 24 小时，如暂不需要可在系统“订阅”中一键取消。"
+                "Your 7-day free trial ends in 48 hours. Cancel anytime in iOS Settings > Subscriptions if you don't wish to renew.",
+                "您的 7 天免费试用将在 48 小时后到期，如暂不需要可在系统“订阅”中一键取消。",
+                "您的 7 天免費試用將在 48 小時後到期，如暫不需要可在系統「訂閱項目」中一鍵取消。"
             )
             content.sound = .default
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 48 * 3600, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5 * 24 * 3600, repeats: false)
             let req = UNNotificationRequest(identifier: "flatbill.trial.reminder", content: content, trigger: trigger)
             center.add(req)
         }

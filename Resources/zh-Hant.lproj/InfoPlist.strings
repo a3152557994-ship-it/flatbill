@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "FlatBill報價單";
+"NSCameraUsageDescription" = "FlatBill 僅在您主動為報價單或發票拍攝施工現場照片時使用相機，所有圖片僅儲存在本機。";
+"NSPhotoLibraryUsageDescription" = "FlatBill 僅在您主動選擇公司 Logo 或加入現場照片至單據時存取相簿，絕不上傳雲端。";

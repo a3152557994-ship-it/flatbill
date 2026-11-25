@@ -107,4 +107,54 @@ final class FlatBillTests: XCTestCase {
         XCTAssertTrue(restored.importJSONBackupData(bak!))
         XCTAssertEqual(restored.documents.count, store.documents.count)
     }
+
+    func testA4PaperSizeVATIDAndRegionalPaywallRouting() {
+        var profile = BusinessProfile()
+        profile.paperSize = .a4
+        profile.taxID = "VAT GB-123456789"
+        profile.defaultCurrencyCode = "GBP"
+        profile.defaultTaxLabel = "VAT"
+
+        let doc = BillingDocument(
+            kind: .invoice,
+            number: "INV-A4-01",
+            clientName: "London Renovations Ltd",
+            currencyCode: "GBP",
+            items: [LineItem(name: "Boiler Service", quantity: 1, unitPrice: 280, taxable: true)],
+            taxRate: 20.0,
+            taxLabel: "VAT",
+            theme: .classicSlate,
+            isSent: true
+        )
+        let pdfData = PDFInvoiceRenderer.renderPDFData(document: doc, profile: profile, includeBrandingFooter: true)
+        let pdfDoc = PDFDocument(data: pdfData)
+        XCTAssertNotNil(pdfDoc)
+        let pageBounds = pdfDoc!.page(at: 0)!.bounds(for: .mediaBox)
+        XCTAssertEqual(pageBounds.width, 595, accuracy: 1.0)
+        XCTAssertEqual(pageBounds.height, 842, accuracy: 1.0)
+
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("US"), .angloROI)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("AU"), .angloROI)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("DE"), .euPrivacyLifetime)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("GB"), .euPrivacyLifetime)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("CH"), .euPrivacyLifetime)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("JP"), .eastAsiaDetail)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("HK"), .eastAsiaDetail)
+        XCTAssertEqual(RegionalPaywallStyle.forRegion("TW"), .eastAsiaDetail)
+    }
+
+    func testLifetimeFreePDFExportCap() {
+        UserDefaults.standard.set(0, forKey: "flatbill.total.exports")
+        UserDefaults.standard.set(false, forKey: "flatbill.pro.cached")
+        let mgr = StoreManager()
+        XCTAssertEqual(mgr.remainingFreeExports, 2)
+        XCTAssertTrue(mgr.canExportFreePDF)
+        mgr.recordPDFExport()
+        XCTAssertEqual(mgr.remainingFreeExports, 1)
+        XCTAssertTrue(mgr.canExportFreePDF)
+        mgr.recordPDFExport()
+        XCTAssertEqual(mgr.remainingFreeExports, 0)
+        XCTAssertFalse(mgr.canExportFreePDF)
+        UserDefaults.standard.set(0, forKey: "flatbill.total.exports")
+    }
 }

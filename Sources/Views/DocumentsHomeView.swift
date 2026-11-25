@@ -113,8 +113,8 @@ struct DocumentsHomeView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
                     Text(store.isPro
-                         ? L10n.t("UNLIMITED PRO", "永久买断已解锁")
-                         : L10n.t("\(store.remainingFreeExportsThisMonth)/\(StoreManager.freeMonthlyExportLimit) Free PDFs Left", "本月余 \(store.remainingFreeExportsThisMonth)/\(StoreManager.freeMonthlyExportLimit) 免费导出"))
+                         ? L10n.t("UNLIMITED PRO", "永久买断已解锁", "永久買斷已解鎖")
+                         : L10n.t("\(store.remainingFreeExports)/\(StoreManager.freeLifetimeExportLimit) Free PDFs Left", "余 \(store.remainingFreeExports)/\(StoreManager.freeLifetimeExportLimit) 次免费导出", "餘 \(store.remainingFreeExports)/\(StoreManager.freeLifetimeExportLimit) 次免費匯出"))
                         .font(.caption2.weight(.bold))
                         .padding(.horizontal, 9)
                         .padding(.vertical, 5)

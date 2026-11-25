@@ -8,6 +8,8 @@ struct MainTabView: View {
     @State private var previewDocId: UUID? = nil
     @State private var editingDoc: EditingTarget? = nil
     @State private var showPaywall: Bool = false
+    @State private var paywallHeadline: String? = nil
+    @State private var showOnboarding: Bool = false
     @State private var didApplyLaunchDemo = false
 
     var body: some View {
@@ -63,7 +65,18 @@ struct MainTabView: View {
             }
         }
         .sheet(isPresented: $showPaywall) {
-            PaywallView()
+            PaywallView(triggerMessage: paywallHeadline)
+        }
+        .fullScreenCover(isPresented: $showOnboarding) {
+            OnboardingView { wantsPaywall, savingsMsg in
+                showOnboarding = false
+                if wantsPaywall && !store.isPro {
+                    paywallHeadline = savingsMsg
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                        showPaywall = true
+                    }
+                }
+            }
         }
         .onAppear {
             applyDemoScreenIfNeeded()
@@ -74,32 +87,38 @@ struct MainTabView: View {
         guard !didApplyLaunchDemo else { return }
         didApplyLaunchDemo = true
         let args = ProcessInfo.processInfo.arguments
-        guard let idx = args.firstIndex(of: "-ui_demo_screen"), idx + 1 < args.count else { return }
-        let screen = args[idx + 1]
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            switch screen {
-            case "home":
-                selectedTab = 0
-            case "preview":
-                selectedTab = 0
-                // Open the paid Blueprint Trade sample invoice for sharp PDF preview showcase
-                if let inv = ledger.documents.first(where: { $0.kind == .invoice && $0.computedStatus == .paid }) ?? ledger.documents.first {
-                    previewDocId = inv.id
+        if let idx = args.firstIndex(of: "-ui_demo_screen"), idx + 1 < args.count {
+            let screen = args[idx + 1]
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                switch screen {
+                case "home":
+                    selectedTab = 0
+                case "preview":
+                    selectedTab = 0
+                    if let inv = ledger.documents.first(where: { $0.kind == .invoice && $0.computedStatus == .paid }) ?? ledger.documents.first {
+                        previewDocId = inv.id
+                    }
+                case "editor":
+                    selectedTab = 0
+                    if let est = ledger.documents.first(where: { $0.kind == .estimate }) ?? ledger.documents.first {
+                        editingDoc = EditingTarget(document: est, isNew: false)
+                    }
+                case "clients":
+                    selectedTab = 1
+                case "pricebook":
+                    selectedTab = 2
+                case "paywall":
+                    selectedTab = 0
+                    showPaywall = true
+                default:
+                    break
                 }
-            case "editor":
-                selectedTab = 0
-                if let est = ledger.documents.first(where: { $0.kind == .estimate }) ?? ledger.documents.first {
-                    editingDoc = EditingTarget(document: est, isNew: false)
-                }
-            case "clients":
-                selectedTab = 1
-            case "pricebook":
-                selectedTab = 2
-            case "paywall":
-                selectedTab = 0
-                showPaywall = true
-            default:
-                break
+            }
+            return
+        }
+        if !UserDefaults.standard.bool(forKey: "flatbill.onboarding.done") && !store.isPro {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                showOnboarding = true
             }
         }
     }

@@ -102,10 +102,11 @@ struct SettingsView: View {
                         }
                     }
 
-                    TextField(L10n.t("Business Name", "公司 / 商号名称"), text: $ledger.profile.businessName)
-                    TextField(L10n.t("Your Name", "负责人 / 师傅姓名"), text: $ledger.profile.ownerName)
-                    TextField(L10n.t("License / Tax ID (optional)", "资质编号 / 税号（选填）"), text: $ledger.profile.licenseNumber)
-                    TextField(L10n.t("Phone", "联系电话"), text: $ledger.profile.phone)
+                    TextField(L10n.t("Business Name", "公司 / 商号名称", "公司 / 商號名稱"), text: $ledger.profile.businessName)
+                    TextField(L10n.t("Your Name", "负责人 / 师傅姓名", "負責人 / 師傅姓名"), text: $ledger.profile.ownerName)
+                    TextField(L10n.t("License Number (optional)", "资质编号 / 工号（选填）", "證照編號 / 工號（選填）"), text: $ledger.profile.licenseNumber)
+                    TextField(L10n.t("VAT / GST / ABN / Tax ID (optional)", "税号 / 统一编号 VAT·GST·ABN（选填）", "統一編號 / VAT / GST / ABN（選填）"), text: $ledger.profile.taxID)
+                    TextField(L10n.t("Phone", "联系电话", "聯絡電話"), text: $ledger.profile.phone)
                     TextField(L10n.t("Email", "电子邮箱"), text: $ledger.profile.email)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
@@ -131,11 +132,17 @@ struct SettingsView: View {
 
                 // Billing Defaults & 0% Fee Payment Instructions
                 Section(L10n.t("Defaults & Direct Payment Instructions", "默认计税与 0% 抽成收款说明")) {
-                    Picker(L10n.t("Default Currency", "默认币种"), selection: $ledger.profile.defaultCurrencyCode) {
+                    Picker(L10n.t("PDF Paper Size", "PDF 纸张规格", "PDF 紙張規格"), selection: $ledger.profile.paperSize) {
+                        ForEach(PaperSize.allCases) { p in
+                            Text(p.label).tag(p)
+                        }
+                    }
+                    Picker(L10n.t("Default Currency", "默认币种", "預設幣別"), selection: $ledger.profile.defaultCurrencyCode) {
                         ForEach(CurrencyOption.all) { c in
                             Text(c.name).tag(c.code)
                         }
                     }
+                    TextField(L10n.t("Tax Label (Sales Tax / VAT / GST)", "税费名称（如税费 / VAT / GST）", "稅目名稱（如營業稅 / VAT / GST）"), text: $ledger.profile.defaultTaxLabel)
                     HStack {
                         Text(L10n.t("Default Tax Rate (%)", "默认税率 (%)"))
                         Spacer()
@@ -207,15 +214,48 @@ struct SettingsView: View {
                     }
                 }
 
+                // Cross-Promotion: More Zero-Subscription Offline Tools
+                Section(L10n.t("More Offline No-Subscription Tools", "更多零订阅离线小工具", "更多免訂閱離線小工具")) {
+                    ForEach(PortfolioTool.crossPromoTools) { tool in
+                        Link(destination: tool.appStoreURL) {
+                            HStack(spacing: 12) {
+                                Image(systemName: tool.icon)
+                                    .font(.body.weight(.bold))
+                                    .foregroundStyle(.white)
+                                    .frame(width: 34, height: 34)
+                                    .background(tool.tint)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(tool.title)
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundStyle(FlatTheme.ink)
+                                    Text(tool.subtitle)
+                                        .font(.caption2)
+                                        .foregroundStyle(FlatTheme.muted)
+                                        .lineLimit(2)
+                                }
+                                Spacer()
+                                Image(systemName: "arrow.up.right")
+                                    .font(.caption)
+                                    .foregroundStyle(FlatTheme.muted)
+                            }
+                            .padding(.vertical, 2)
+                        }
+                    }
+                }
+
                 // Legal & Support
-                Section(L10n.t("Privacy & Support", "隐私与支持")) {
-                    Link(L10n.t("Privacy Policy (100% Offline Data)", "隐私政策（100% 本地离线）"), destination: privacyURL)
-                    Link(L10n.t("Terms of Use (EULA)", "使用条款 (EULA)"), destination: termsURL)
-                    Link(L10n.t("Help & Support", "帮助与联系支持"), destination: supportURL)
+                Section(L10n.t("Privacy & Support", "隐私与支持", "隱私與支援")) {
+                    Link(L10n.t("Privacy Policy (100% Offline Data)", "隐私政策（100% 本地离线）", "隱私權政策（100% 本機離線）"), destination: privacyURL)
+                    Link(L10n.t("Terms of Use (EULA)", "使用条款 (EULA)", "使用條款 (EULA)"), destination: termsURL)
+                    Link(L10n.t("Help & Support", "帮助与联系支持", "說明與聯絡支援"), destination: supportURL)
+                    Button(L10n.t("Send Feedback / Report Issue", "意见反馈 / 问题直达开发者", "意見回饋 / 回報問題")) {
+                        ReviewPromptManager.openSupportFeedbackEmail()
+                    }
                     HStack {
-                        Text(L10n.t("Version", "版本号"))
+                        Text(L10n.t("Version", "版本号", "版本號"))
                         Spacer()
-                        Text("1.0.0").foregroundStyle(FlatTheme.muted)
+                        Text("1.0.1").foregroundStyle(FlatTheme.muted)
                     }
                 }
             }

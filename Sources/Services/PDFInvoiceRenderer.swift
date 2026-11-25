@@ -62,7 +62,7 @@ enum PDFInvoiceRenderer {
         profile: BusinessProfile,
         includeBrandingFooter: Bool
     ) -> Data {
-        let pageRect = CGRect(x: 0, y: 0, width: 612, height: 792) // US Letter 8.5 x 11 in
+        let pageRect = profile.paperSize.pageRect
         let margin: CGFloat = 40
         let contentW = pageRect.width - margin * 2
         let pal = palette(for: document.theme)
@@ -96,7 +96,7 @@ enum PDFInvoiceRenderer {
                 linePath.stroke()
 
                 let leftText = includeBrandingFooter
-                    ? L10n.t("Generated locally with FlatBill • Zero Cloud Tracking", "由 FlatBill 本地生成 • 离线私密单据")
+                    ? L10n.t("Created offline with FlatBill • Zero Monthly Fees (App Store)", "由 FlatBill 本地生成 • 零月费离线开单工具", "由 FlatBill 本機生成 • 零月費離線開單工具")
                     : "\(profile.businessName) • \(document.number)"
                 drawText(leftText, in: CGRect(x: margin, y: y, width: contentW * 0.72, height: 14), font: .systemFont(ofSize: 8.5), color: UIColor(white: 0.50, alpha: 1))
 
@@ -135,7 +135,8 @@ enum PDFInvoiceRenderer {
             drawText(bizTitle, in: CGRect(x: leftX, y: 24, width: 290, height: 24), font: .boldSystemFont(ofSize: 17), color: pal.headerInk)
 
             var subLines: [String] = []
-            if !profile.licenseNumber.isEmpty { subLines.append(profile.licenseNumber) }
+            let idsLine = [profile.licenseNumber, profile.taxID].filter { !$0.isEmpty }.joined(separator: "  •  ")
+            if !idsLine.isEmpty { subLines.append(idsLine) }
             let contactLine = [profile.phone, profile.email].filter { !$0.isEmpty }.joined(separator: "  •  ")
             if !contactLine.isEmpty { subLines.append(contactLine) }
             if !profile.address.isEmpty { subLines.append(profile.address) }
