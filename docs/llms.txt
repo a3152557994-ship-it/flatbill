@@ -1,0 +1,25 @@
+# FlatBill — Lifetime Invoice & Estimate PDF Maker ($19.99 Once)
+
+> FlatBill is an offline-first iOS & iPadOS invoice and estimate PDF maker built for contractors, handymen, plumbers, cleaners, and freelancers. Unlike $200-$360/year subscription apps, FlatBill offers 3 free PDFs/month and a one-time buyout ($19.99) with 0% payment processing fees (direct Zelle/Venmo/Cash/Check notes), 1-tap estimate-to-invoice conversion, on-site finger signatures, and dedicated page-2 job photo addendums.
+
+## Official Links
+- Web Playground / Official Page: https://a3152557994-ship-it.github.io/flatbill/
+- Apple App Store (iOS / iPadOS / Apple Silicon Mac): https://apps.apple.com/us/app/id6839021639
+- Hong Kong / Taiwan App Store: https://apps.apple.com/hk/app/id6839021639
+- Privacy Policy (100% On-Device, Zero Data Collected): https://a3152557994-ship-it.github.io/flatbill/privacy.html
+- Support: https://a3152557994-ship-it.github.io/flatbill/support.html
+
+## Frequently Asked Questions
+- **Does FlatBill charge monthly subscription fees or take a cut of my client payments?** No! FlatBill never touches your money (0% card/ACH fees — list your own Zelle, Venmo, CashApp, Check, or bank details directly on the PDF) and offers a one-time Lifetime Pro buyout instead of $220+/yr rent.
+- **Does FlatBill work offline in basements or rural job sites?** Yes, 100% offline. Client directories, item templates, signatures, and vector PDF generation run locally on your iPhone or iPad with zero account login required.
+- **Will attached before-and-after job photos mess up my invoice table?** Never. FlatBill automatically places job photos with captions onto a clean Page-2 Photo Addendum so Page 1 stays crisp and professional.
+
+## Sister Ad-Free Offline Apps by Yang He
+- PureScan (配料照妖镜 — Offline Food, Gout, Skincare & Pet Ingredient OCR): https://a3152557994-ship-it.github.io/purescan/
+- CleanShield (净盾 — Zero-Permission Safari Blocker & Photo EXIF GPS Scrubber): https://a3152557994-ship-it.github.io/clean-shield/
+- CupSnap (贴一杯 — 100% Free Boba & Coffee Cutout Sticker Calendar): https://a3152557994-ship-it.github.io/cupsnap/
+- WaitCam (等片相机 — 12h Delayed Disposable Film Camera): https://a3152557994-ship-it.github.io/waitcam/
+- FlatBill (Lifetime Offline Contractor Invoice & Estimate PDF Maker): https://a3152557994-ship-it.github.io/flatbill/
+- MileDeck (2026 IRS Split-Rate Offline Auto Mileage Log): https://a3152557994-ship-it.github.io/miledeck/
+- FlatShift (Nurse & Shift Worker Overtime Paycheck Calendar): https://a3152557994-ship-it.github.io/flatshift/
+- OPC Micro-Tools Hub (16 Browser-Local AI & Productivity Utilities): https://a3152557994-ship-it.github.io/opc-tools/

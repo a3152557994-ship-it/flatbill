@@ -1,0 +1,17 @@
+{
+  "name": "FlatBill — Lifetime Invoice & Estimate PDF Maker ($19.99 Once)",
+  "short_name": "FlatBill",
+  "description": "Offline invoice & estimate PDF maker for plumbers, handymen, cleaners, and freelancers. 1-tap clone past jobs, clean page-2 before/after photos, 0% Zelle/Venmo payment instructions, and $19.99 lifetime buyout instead of $220/yr subscriptions.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#D96B16",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
