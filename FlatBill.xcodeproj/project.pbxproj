@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64627C83479D2F5DE510951F /* app_res::Assets.xcassets */ = {isa = PBXBuildFile; fileRef = 7344B04FF7F2368C44EA71B7; };
+		55DBE523967E7D93E97C06BC /* app_res::InfoPlist.strings */ = {isa = PBXBuildFile; fileRef = A19687CA5E8A7DBF0441A786; };
+		4A2A263DCA254C411783A692 /* app_res::PrivacyInfo.xcprivacy */ = {isa = PBXBuildFile; fileRef = 16B31B00E1BF548B2FA581CE; };
+		9BE73CD34371B080E33FB98B /* app_src::Sources/FlatBillApp.swift */ = {isa = PBXBuildFile; fileRef = 2C305CE18F700474F5C9FF7B; };
+		425018B7D60020CBF42267B2 /* app_src::Sources/Services/LedgerStore.swift */ = {isa = PBXBuildFile; fileRef = B6F320A11E2C048DCE047263; };
+		EC0CAB20C248F3C97D689E31 /* app_src::Sources/Services/PDFInvoiceRenderer.swift */ = {isa = PBXBuildFile; fileRef = 98301C61AD9950629D0DB8A3; };
+		8E72225BB05B7ED862C8DDB8 /* app_src::Sources/Services/StoreManager.swift */ = {isa = PBXBuildFile; fileRef = 54C42B5843D4CC8F19200AA4; };
+		B526322B9E4EEEAE133A825D /* app_src::Sources/Shared/L10n.swift */ = {isa = PBXBuildFile; fileRef = AC595452004A5B743FE4F9D8; };
+		21BDC790AE41E81BFAEF8A72 /* app_src::Sources/Shared/Models.swift */ = {isa = PBXBuildFile; fileRef = 454C19FDDFB050F77947285B; };
+		0F0D859EFBCDD7FA6D57A6EF /* app_src::Sources/Shared/Theme.swift */ = {isa = PBXBuildFile; fileRef = 505E445BE3FFF38D239F4B1A; };
+		5A4EEFCB64A014EC61428FA2 /* app_src::Sources/Views/ClientsView.swift */ = {isa = PBXBuildFile; fileRef = F89D2A609DA81511968A9DA8; };
+		978176105063FECEA0F92B79 /* app_src::Sources/Views/DocumentEditorView.swift */ = {isa = PBXBuildFile; fileRef = 75D242D068A1A62027B3C6C7; };
+		203A119219F88E5820628700 /* app_src::Sources/Views/DocumentPreviewView.swift */ = {isa = PBXBuildFile; fileRef = E0A2A9CA70F74C4E83659D22; };
+		4A99ADCB73F5CFD5A6EFC7D9 /* app_src::Sources/Views/DocumentsHomeView.swift */ = {isa = PBXBuildFile; fileRef = 98F8569145F2A765F39E055A; };
+		4F0F3454B2692A7277F56855 /* app_src::Sources/Views/MainTabView.swift */ = {isa = PBXBuildFile; fileRef = 1356900129314D31620C2660; };
+		1179E9720F3386D294A7262A /* app_src::Sources/Views/PaywallView.swift */ = {isa = PBXBuildFile; fileRef = 7B5D2E311A5BD5DF5756E89D; };
+		866D01BDB1BA8E8C740A6638 /* app_src::Sources/Views/PriceBookView.swift */ = {isa = PBXBuildFile; fileRef = 57549E5E829955D57247095E; };
+		B4099433945F71DBC1220E0B /* app_src::Sources/Views/SettingsView.swift */ = {isa = PBXBuildFile; fileRef = D9062D9595371FAF96065A17; };
+		4325F0704749887725DFB281 /* app_src::Sources/Views/SignaturePadView.swift */ = {isa = PBXBuildFile; fileRef = F56254E6B8824CB754EFE587; };
+		3F5F3926FE34E1A15BE01952 /* test_res::FlatBill.storekit */ = {isa = PBXBuildFile; fileRef = A250A2250DD12669F2F2FD68; };
+		9B699584CC6EDBC8C7151F5F /* test_src::Tests/FlatBillTests.swift */ = {isa = PBXBuildFile; fileRef = 6FAC347E6BDAE035E7CE29E6; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A75CA11641C1EABCA9958C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C844F925A1B1E789C464721 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8BA06CAEE81F37576AE7684;
+			remoteInfo = FlatBill;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5897E22AC56D0F93117D3647 /* FlatBill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "FlatBill.entitlements"; path = "Config/FlatBill.entitlements"; sourceTree = "<group>"; };
+		A250A2250DD12669F2F2FD68 /* FlatBill.storekit */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "FlatBill.storekit"; path = "Config/FlatBill.storekit"; sourceTree = "<group>"; };
+		9E9685F019FA8AB3EF96C6BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Config/Info.plist"; sourceTree = "<group>"; };
+		7344B04FF7F2368C44EA71B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Assets.xcassets"; path = "Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		16B31B00E1BF548B2FA581CE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "PrivacyInfo.xcprivacy"; path = "Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		6D8EBA16405712AE16940E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en"; path = "Resources/en.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1D3058F65FB06B4298546429 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Resources/zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2C305CE18F700474F5C9FF7B /* FlatBillApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FlatBillApp.swift"; path = "Sources/FlatBillApp.swift"; sourceTree = "<group>"; };
+		B6F320A11E2C048DCE047263 /* LedgerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LedgerStore.swift"; path = "Sources/Services/LedgerStore.swift"; sourceTree = "<group>"; };
+		98301C61AD9950629D0DB8A3 /* PDFInvoiceRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PDFInvoiceRenderer.swift"; path = "Sources/Services/PDFInvoiceRenderer.swift"; sourceTree = "<group>"; };
+		54C42B5843D4CC8F19200AA4 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StoreManager.swift"; path = "Sources/Services/StoreManager.swift"; sourceTree = "<group>"; };
+		AC595452004A5B743FE4F9D8 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "L10n.swift"; path = "Sources/Shared/L10n.swift"; sourceTree = "<group>"; };
+		454C19FDDFB050F77947285B /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Models.swift"; path = "Sources/Shared/Models.swift"; sourceTree = "<group>"; };
+		505E445BE3FFF38D239F4B1A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Theme.swift"; path = "Sources/Shared/Theme.swift"; sourceTree = "<group>"; };
+		F89D2A609DA81511968A9DA8 /* ClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClientsView.swift"; path = "Sources/Views/ClientsView.swift"; sourceTree = "<group>"; };
+		75D242D068A1A62027B3C6C7 /* DocumentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DocumentEditorView.swift"; path = "Sources/Views/DocumentEditorView.swift"; sourceTree = "<group>"; };
+		E0A2A9CA70F74C4E83659D22 /* DocumentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DocumentPreviewView.swift"; path = "Sources/Views/DocumentPreviewView.swift"; sourceTree = "<group>"; };
+		98F8569145F2A765F39E055A /* DocumentsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DocumentsHomeView.swift"; path = "Sources/Views/DocumentsHomeView.swift"; sourceTree = "<group>"; };
+		1356900129314D31620C2660 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MainTabView.swift"; path = "Sources/Views/MainTabView.swift"; sourceTree = "<group>"; };
+		7B5D2E311A5BD5DF5756E89D /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PaywallView.swift"; path = "Sources/Views/PaywallView.swift"; sourceTree = "<group>"; };
+		57549E5E829955D57247095E /* PriceBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PriceBookView.swift"; path = "Sources/Views/PriceBookView.swift"; sourceTree = "<group>"; };
+		D9062D9595371FAF96065A17 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsView.swift"; path = "Sources/Views/SettingsView.swift"; sourceTree = "<group>"; };
+		F56254E6B8824CB754EFE587 /* SignaturePadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SignaturePadView.swift"; path = "Sources/Views/SignaturePadView.swift"; sourceTree = "<group>"; };
+		6FAC347E6BDAE035E7CE29E6 /* FlatBillTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FlatBillTests.swift"; path = "Tests/FlatBillTests.swift"; sourceTree = "<group>"; };
+		D745625D2C9A5DB764666366 /* FlatBill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatBill.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16FCC2691FA7D9D79AA32370 /* FlatBillTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatBillTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FED67955976EF6B5260C7AD8 /* Frameworks (FlatBill) */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38092C5193302638B6870B79 /* Frameworks (FlatBillTests) */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		777D7C2696487B2F165C6980 = {
+			isa = PBXGroup;
+			children = (
+				130570634D60BC5DC012C283 /* Sources */,
+				D9066208044D820CC5C47EC6 /* Tests */,
+				3344D170F8713EA5C2DC5018 /* Resources */,
+				94470385BFC8A411C86FFE4B /* Config */,
+				C8F99199E35E8380863347F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		130570634D60BC5DC012C283 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2C305CE18F700474F5C9FF7B,
+				B6F320A11E2C048DCE047263,
+				98301C61AD9950629D0DB8A3,
+				54C42B5843D4CC8F19200AA4,
+				AC595452004A5B743FE4F9D8,
+				454C19FDDFB050F77947285B,
+				505E445BE3FFF38D239F4B1A,
+				F89D2A609DA81511968A9DA8,
+				75D242D068A1A62027B3C6C7,
+				E0A2A9CA70F74C4E83659D22,
+				98F8569145F2A765F39E055A,
+				1356900129314D31620C2660,
+				7B5D2E311A5BD5DF5756E89D,
+				57549E5E829955D57247095E,
+				D9062D9595371FAF96065A17,
+				F56254E6B8824CB754EFE587,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		D9066208044D820CC5C47EC6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6FAC347E6BDAE035E7CE29E6,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		3344D170F8713EA5C2DC5018 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7344B04FF7F2368C44EA71B7,
+				16B31B00E1BF548B2FA581CE,
+				A19687CA5E8A7DBF0441A786,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		94470385BFC8A411C86FFE4B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9E9685F019FA8AB3EF96C6BE,
+				5897E22AC56D0F93117D3647,
+				A250A2250DD12669F2F2FD68,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		C8F99199E35E8380863347F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D745625D2C9A5DB764666366,
+				16FCC2691FA7D9D79AA32370,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8BA06CAEE81F37576AE7684 /* FlatBill */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A868CE2733A5734D3BBE5471;
+			buildPhases = (
+				F0E6D62D22B1E74021AB8AF9 /* Sources */,
+				FED67955976EF6B5260C7AD8 /* Frameworks */,
+				211B7C03BF9E683900BF403A /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = FlatBill;
+			productName = FlatBill;
+			productReference = D745625D2C9A5DB764666366;
+			productType = "com.apple.product-type.application";
+		};
+		13A07BF49A2D687400FC0015 /* FlatBillTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB8D4355DE5A635522BC10E8;
+			buildPhases = (
+				43E06B3963F560C5BC2C09FD /* Sources */,
+				38092C5193302638B6870B79 /* Frameworks */,
+				C4B32DFA0434C6392BCD66F2 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = (
+				8E7594F04FE9B0703F560811 /* PBXTargetDependency */,
+			);
+			name = FlatBillTests;
+			productName = FlatBillTests;
+			productReference = 16FCC2691FA7D9D79AA32370;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C844F925A1B1E789C464721 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2720;
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					C8BA06CAEE81F37576AE7684 = { DevelopmentTeam = KU364788TC; ProvisioningStyle = Automatic; };
+					13A07BF49A2D687400FC0015 = { DevelopmentTeam = KU364788TC; TestTargetID = C8BA06CAEE81F37576AE7684; };
+				};
+			};
+			buildConfigurationList = D981A4279D887A362963C9D2;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, "zh-Hans", Base);
+			mainGroup = 777D7C2696487B2F165C6980;
+			productRefGroup = C8F99199E35E8380863347F2;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8BA06CAEE81F37576AE7684 /* FlatBill */,
+				13A07BF49A2D687400FC0015 /* FlatBillTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		211B7C03BF9E683900BF403A = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64627C83479D2F5DE510951F /* app_res::Assets.xcassets */,
+				4A2A263DCA254C411783A692 /* app_res::PrivacyInfo.xcprivacy */,
+				55DBE523967E7D93E97C06BC /* app_res::InfoPlist.strings */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4B32DFA0434C6392BCD66F2 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F5F3926FE34E1A15BE01952 /* test_res::FlatBill.storekit */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0E6D62D22B1E74021AB8AF9 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BE73CD34371B080E33FB98B /* Sources/FlatBillApp.swift */,
+				425018B7D60020CBF42267B2 /* Sources/Services/LedgerStore.swift */,
+				EC0CAB20C248F3C97D689E31 /* Sources/Services/PDFInvoiceRenderer.swift */,
+				8E72225BB05B7ED862C8DDB8 /* Sources/Services/StoreManager.swift */,
+				B526322B9E4EEEAE133A825D /* Sources/Shared/L10n.swift */,
+				21BDC790AE41E81BFAEF8A72 /* Sources/Shared/Models.swift */,
+				0F0D859EFBCDD7FA6D57A6EF /* Sources/Shared/Theme.swift */,
+				5A4EEFCB64A014EC61428FA2 /* Sources/Views/ClientsView.swift */,
+				978176105063FECEA0F92B79 /* Sources/Views/DocumentEditorView.swift */,
+				203A119219F88E5820628700 /* Sources/Views/DocumentPreviewView.swift */,
+				4A99ADCB73F5CFD5A6EFC7D9 /* Sources/Views/DocumentsHomeView.swift */,
+				4F0F3454B2692A7277F56855 /* Sources/Views/MainTabView.swift */,
+				1179E9720F3386D294A7262A /* Sources/Views/PaywallView.swift */,
+				866D01BDB1BA8E8C740A6638 /* Sources/Views/PriceBookView.swift */,
+				B4099433945F71DBC1220E0B /* Sources/Views/SettingsView.swift */,
+				4325F0704749887725DFB281 /* Sources/Views/SignaturePadView.swift */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43E06B3963F560C5BC2C09FD = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B699584CC6EDBC8C7151F5F /* Tests/FlatBillTests.swift */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E7594F04FE9B0703F560811 = {isa = PBXTargetDependency; target = C8BA06CAEE81F37576AE7684; targetProxy = 1A75CA11641C1EABCA9958C2; };
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A19687CA5E8A7DBF0441A786 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D8EBA16405712AE16940E13 /* en */,
+				1D3058F65FB06B4298546429 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		34D7B6CEE78458F0A795BD84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU364788TC;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG";
+			};
+			name = Debug;
+		};
+		29DC4D5833E01FBB0EB52DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KU364788TC;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		310FBDE2D5DDC3AD5973128F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Config/FlatBill.entitlements";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghe.flatbill;
+				PRODUCT_NAME = FlatBill;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+			};
+			name = Debug;
+		};
+		9EE2B5A1CA7839AA363A0CB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Config/FlatBill.entitlements";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Config/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghe.flatbill;
+				PRODUCT_NAME = FlatBill;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "FlatBill AppStore Dist";
+			};
+			name = Release;
+		};
+		3CD4BA5F253A204D23E2FC5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghe.flatbill.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlatBill.app/FlatBill";
+			};
+			name = Debug;
+		};
+		960E6F18704DFB2702A61E57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yanghe.flatbill.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlatBill.app/FlatBill";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D981A4279D887A362963C9D2 /* Build configuration list for PBXProject FlatBill */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34D7B6CEE78458F0A795BD84 /* Debug */,
+				29DC4D5833E01FBB0EB52DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A868CE2733A5734D3BBE5471 /* Build configuration list for PBXNativeTarget FlatBill */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310FBDE2D5DDC3AD5973128F /* Debug */,
+				9EE2B5A1CA7839AA363A0CB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB8D4355DE5A635522BC10E8 /* Build configuration list for PBXNativeTarget FlatBillTests */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CD4BA5F253A204D23E2FC5A /* Debug */,
+				960E6F18704DFB2702A61E57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C844F925A1B1E789C464721 /* Project object */;
+}

@@ -1,0 +1,129 @@
+{
+  "identifier" : "F1A7B111-1000-4000-8000-000000000001",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : true,
+      "internalID" : "FB_LIFE_001",
+      "localizations" : [
+        {
+          "description" : "Pay once, own forever. Unlimited PDF invoices, estimates, all 4 themes, job photos & CSV tax export.",
+          "displayName" : "FlatBill Pro Lifetime",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "一次买断终身解锁无限PDF报价单发票、全4套专业模板、现场附图与税务报表导出。",
+          "displayName" : "FlatBill 永久买断版",
+          "locale" : "zh_CN"
+        }
+      ],
+      "productID" : "com.yanghe.flatbill.pro.lifetime",
+      "referenceName" : "FlatBill Pro Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "9999999999",
+    "_developerTeamID" : "KU364788TC",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "FB_SG_001",
+      "localizations" : [
+        {
+          "customAppName" : "FlatBill",
+          "description" : "Unlimited PDF invoices, estimates, pro themes, and job photos.",
+          "displayName" : "FlatBill Pro",
+          "locale" : "en_US"
+        },
+        {
+          "customAppName" : "FlatBill报价单",
+          "description" : "无限PDF单据、全套专业模板与无品牌页脚导出。",
+          "displayName" : "FlatBill Pro 会员",
+          "locale" : "zh_CN"
+        }
+      ],
+      "name" : "FlatBill Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "FB_YEAR_001",
+          "introductoryOffer" : {
+            "internalID" : "FB_TRIAL_3D",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "3-day free trial, then annual unlimited PDF invoices, estimates & all pro themes.",
+              "displayName" : "FlatBill Pro Annual",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "含3天免费试用，全年无限导出PDF报价单发票与全部模板。",
+              "displayName" : "FlatBill Pro 年度版",
+              "locale" : "zh_CN"
+            }
+          ],
+          "productID" : "com.yanghe.flatbill.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "FlatBill Pro Annual",
+          "subscriptionGroupID" : "FB_SG_001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : true,
+          "groupNumber" : 2,
+          "internalID" : "FB_MONTH_001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly unlimited PDF invoices, estimates, job photos & CSV tax export.",
+              "displayName" : "FlatBill Pro Monthly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "按月解锁无限PDF报价单发票、全套模板与现场附图。",
+              "displayName" : "FlatBill Pro 月度版",
+              "locale" : "zh_CN"
+            }
+          ],
+          "productID" : "com.yanghe.flatbill.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "FlatBill Pro Monthly",
+          "subscriptionGroupID" : "FB_SG_001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlatBill — Lifetime Invoice & Estimate PDF Maker (No $200/yr Subscriptions)</title>
+  <style>
+    :root { --paper:#F7F5F0; --slate:#151C26; --amber:#D96B16; --green:#15803D; --muted:#5B6573; --border:#E5E1D8; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC",sans-serif; background:var(--paper); color:var(--slate); line-height:1.55; }
+    .wrap { max-width:960px; margin:0 auto; padding:28px 20px 64px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:36px; flex-wrap:wrap; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--slate); }
+    .brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 6px 16px rgba(21,28,38,.16); }
+    .brand strong { font-size:20px; letter-spacing:-.3px; }
+    .nav { display:flex; gap:18px; font-size:14px; }
+    .nav a { color:var(--muted); text-decoration:none; font-weight:600; }
+    .nav a:hover { color:var(--amber); }
+    .hero { background:var(--slate); color:#fff; border-radius:24px; padding:42px 28px; text-align:center; margin-bottom:28px; }
+    .pill { display:inline-block; background:rgba(217,107,22,.22); color:#FFAD66; font-size:12px; font-weight:800; letter-spacing:.8px; padding:6px 14px; border-radius:999px; margin-bottom:16px; text-transform:uppercase; }
+    h1 { font-size:clamp(28px,5vw,44px); line-height:1.15; letter-spacing:-.6px; margin-bottom:14px; }
+    .hero p { color:rgba(255,255,255,.8); max-width:640px; margin:0 auto 24px; font-size:16px; }
+    .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:560px; margin:0 auto 26px; }
+    .cbox { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:16px; text-align:left; }
+    .cbox.win { background:rgba(217,107,22,.22); border-color:var(--amber); }
+    .cbox small { display:block; font-size:12px; color:rgba(255,255,255,.68); margin-bottom:4px; }
+    .cbox b { font-size:22px; font-variant-numeric:tabular-nums; }
+    .strike { text-decoration:line-through; text-decoration-color:#EF4444; opacity:.75; }
+    .cta { display:inline-block; background:var(--amber); color:#fff; text-decoration:none; font-weight:800; padding:14px 28px; border-radius:14px; font-size:16px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:28px 0; }
+    .card { background:#fff; border:1px solid var(--border); border-radius:18px; padding:22px; }
+    .card h3 { font-size:17px; margin-bottom:8px; }
+    .card p { font-size:14px; color:var(--muted); }
+    .calc { background:#fff; border:1px solid var(--border); border-radius:20px; padding:24px; margin-top:24px; }
+    .calc h2 { font-size:20px; margin-bottom:12px; }
+    .row { display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px; margin-bottom:10px; }
+    input { padding:10px 12px; border:1px solid var(--border); border-radius:10px; font-size:14px; width:100%; }
+    .totalbar { display:flex; justify-content:space-between; align-items:center; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-weight:800; font-size:18px; }
+    footer { margin-top:42px; text-align:center; font-size:13px; color:var(--muted); }
+    footer a { color:var(--slate); margin:0 10px; }
+    @media (max-width:600px){ .compare{grid-template-columns:1fr;} .row{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./">
+        <img src="icon.png" alt="FlatBill Icon" />
+        <div>
+          <strong>FlatBill</strong>
+          <div style="font-size:12px;color:var(--muted)">Invoice & Estimate PDF Maker</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="pill">Zero Login • 100% Offline • 0% Card Fees</div>
+      <h1>Stop Renting Your Invoice App for $220/Year.</h1>
+      <p>Built for plumbers, handymen, cleaners, landscapers, and freelancers who get paid by Zelle, Venmo, Cash, or Check—and just want crisp branded PDF quotes & invoices right from the job site.</p>
+      <div class="compare">
+        <div class="cbox">
+          <small>Typical Invoice Subscriptions</small>
+          <b class="strike">$200–$360 / yr</b>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);margin-top:4px">Weekly $8–$9 traps & forced accounts</div>
+        </div>
+        <div class="cbox win">
+          <small style="color:#FFAD66">FlatBill Lifetime Pro</small>
+          <b>$19.99 Once</b>
+          <div style="font-size:12px;color:rgba(255,255,255,.85);margin-top:4px">Free 3 PDFs/mo • Own forever</div>
+        </div>
+      </div>
+      <a class="cta" href="https://apps.apple.com/us/developer/id1854695031">Get FlatBill on the App Store</a>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>⚡ 1-Tap Clone & Swap Client</h3>
+        <p>Repeat the same trade jobs every week? Duplicate any past estimate or invoice, swap the client name in one tap, and send in under 15 seconds.</p>
+      </div>
+      <div class="card">
+        <h3>📸 Clean Page-2 Job Photos</h3>
+        <p>Attach before & after work photos with captions. FlatBill automatically places them on a clean photo addendum page—never overlapping your line items.</p>
+      </div>
+      <div class="card">
+        <h3>✍️ On-Site Signature & Paid Stamp</h3>
+        <p>Convert an approved estimate into an invoice in one tap, capture finger sign-off right on your iPhone, and stamp PAID receipts with 0% payment fees.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 Offline Data Sovereignty</h3>
+        <p>Works in basements and rural sites with zero signal. Your client list and invoices stay strictly on your device with 1-tap JSON backup & CSV tax export.</p>
+      </div>
+    </section>
+
+    <section class="calc">
+      <h2>Quick Job Estimate Calculator (Try It Live)</h2>
+      <div class="row">
+        <input id="n1" value="Quarter-Turn Brass Shutoff Valve Kit" />
+        <input id="q1" type="number" value="1" min="0" step="0.5" oninput="calc()" />
+        <input id="p1" type="number" value="145" min="0" step="5" oninput="calc()" />
+      </div>
+      <div class="row">
+        <input id="n2" value="Skilled Installation Labor (hrs)" />
+        <input id="q2" type="number" value="2.5" min="0" step="0.5" oninput="calc()" />
+        <input id="p2" type="number" value="110" min="0" step="5" oninput="calc()" />
+      </div>
+      <div class="totalbar">
+        <span>Estimated Job Total (w/ 8.25% Tax)</span>
+        <span id="out" style="color:var(--amber)">$454.65</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Yang He · FlatBill Invoice & Estimate Maker</p>
+      <p style="margin-top:8px">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use (EULA)</a>
+        <a href="support.html">Support</a>
+      </p>
+    </footer>
+  </div>
+  <script>
+    function calc(){
+      const s = (parseFloat(q1.value)||0)*(parseFloat(p1.value)||0) + (parseFloat(q2.value)||0)*(parseFloat(p2.value)||0);
+      out.textContent = '$' + (s * 1.0825).toFixed(2);
+    }
+    calc();
+  </script>
+</body>
+</html>

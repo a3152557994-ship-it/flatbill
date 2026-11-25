@@ -1,0 +1,28 @@
+{
+  "bundleId": "com.yanghe.flatbill",
+  "primaryCategory": "BUSINESS",
+  "secondaryCategory": "FINANCE",
+  "copyright": "© 2026 Yang He",
+  "urls": {
+    "privacy": "https://a3152557994-ship-it.github.io/flatbill/privacy.html",
+    "terms": "https://a3152557994-ship-it.github.io/flatbill/terms.html",
+    "support": "https://a3152557994-ship-it.github.io/flatbill/support.html",
+    "marketing": "https://a3152557994-ship-it.github.io/flatbill/"
+  },
+  "localizations": {
+    "en-US": {
+      "name": "FlatBill: Invoice & Estimate",
+      "subtitle": "PDF Quotes, Receipts & Clients",
+      "promotionalText": "Create branded PDF estimates & invoices offline right at the job site. 1-tap clone & swap client, clean Page-2 job photos, 0% payment fees, and an optional $19.99 Lifetime unlock.",
+      "keywords": "invoice maker,estimate,quote,receipt,contractor,handyman,billing,bill,freelancer,generator,offline",
+      "description": "FlatBill is a fast, 100% offline invoice and estimate PDF maker built for contractors, plumbers, handymen, cleaners, landscapers, and freelancers who want crisp client-ready documents without paying $200+/year in software subscriptions or 3% card processing fees.\n\nBUILT FOR REAL JOB SITES:\n• 1-Tap Clone & Swap Client: Repeat the same jobs all week? Duplicate any past invoice or estimate, swap the client in one tap, tweak a line item, and send in under 15 seconds.\n• Instant Estimate-to-Invoice Conversion: Client approved your quote? Convert it to a numbered invoice with one tap—preserving every item, tax rate, and job photo.\n• Clean Page-2 Job Site Photos: Attach before/after photos with captions. FlatBill automatically places photos on a clean dedicated addendum page so they never overlap your line items.\n• Zero-Fee Payment Instructions: Print your Zelle, Venmo, Cash App, Check, or Bank Transfer instructions directly on every PDF—keep 100% of what you earn.\n• Record Partial & Full Payments: Track deposits, remaining balances, and automatically stamp PAID on finalized PDF receipts.\n• On-Site Finger Signatures: Save your default signature and capture client approval signatures right on your iPhone or iPad.\n• Reusable Price Book & Client Ledger: Tap to insert saved labor rates and materials, view total billed & unpaid balances per client, and export local JSON backups or CSV tax summaries anytime.\n• Works 100% Offline, No Forced Account: Works in basements and rural job sites with zero cell signal. Your records stay privately on your device.\n\nHONEST PRICING:\nStart free with unlimited drafts, live PDF previews, unlimited clients & price book items, and 3 free PDF exports every month.\nUpgrade anytime with:\n• FlatBill Pro Lifetime ($19.99 one-time): Pay once, own forever—unlimited PDFs, all 4 executive PDF themes, remove footer branding, unlimited job photos, and CSV tax export.\n• FlatBill Pro Annual ($9.99/year with 3-day free trial) or Monthly ($2.99/month): Flexible auto-renewable plans you can cancel anytime in iOS Settings > Apple Account > Subscriptions.\n\nPrivacy Policy: https://a3152557994-ship-it.github.io/flatbill/privacy.html\nTerms of Use (EULA): https://a3152557994-ship-it.github.io/flatbill/terms.html"
+    },
+    "zh-Hans": {
+      "name": "FlatBill 报价单与发票收据制作",
+      "subtitle": "离线秒开PDF单据·客户与项目一键复用",
+      "promotionalText": "免登录 100% 本地离线开单工具：一键复制老单换客户、施工前后照自动排在附页不挡字、报价单秒转正式发票、零平台收款抽成，支持低门槛买断用终身。",
+      "keywords": "送货单,对账单,请款单,工程报价,装修报价,个体户开单,收款单,小微企业,买断,模板",
+      "description": "FlatBill 是一款专为装修师傅、水电维修、个体门店、摄影设计及自由职业者打造的 100% 本地离线报价单与发票收据 PDF 制作工具。免注册登录、无广告弹窗、不抽任何收款手续费。\n\n核心实用功能：\n• 一键复制并换客户：同类工程或服务反复报价？点一下复制历史单据、切换新客户名，15 秒发出专业 PDF。\n• 报价单秒转正式收款单：客户确认报价后，一键转为带新编号的正式单据，完整继承明细、税率与现场图。\n• 施工现场照独立附页（绝不遮挡正文）：支持添加施工前后对比照片与说明文字，自动整齐排在 PDF 第二页附页。\n• 零抽成直收款说明与已结清印章：在单据底部直接展示您的微信/支付宝/银行收款说明，登记定金或尾款后自动加盖绿色「已结清」印章。\n• 手机当场手写签名：内置服务方默认签名与客户验收手写签字板，直接嵌入 PDF。\n• 常用价目库与客户欠款台账：常用人工费/材料单价一键插入，自动统计每位客户累计开单与未结尾款；支持全量 JSON 本地备份与年度 CSV 报税导出。\n\n透明定价：\n免费下载，无限创建草稿与预览 PDF，每月送 3 次免费导出。\n如需无限导出、全 4 套专业单据模板、去除底部标识与 CSV 税务报表，可选：\n• 永久买断版（¥68 一次付清，终身拥有无续费）\n• 年度会员（¥38/年，含 3 天免费试用，扣费前 24 小时主动提醒）或月度会员（¥12/月），可随时在 iPhone「设置 > Apple 账户 > 订阅」取消。\n\n隐私政策：https://a3152557994-ship-it.github.io/flatbill/privacy.html\n使用条款：https://a3152557994-ship-it.github.io/flatbill/terms.html"
+    }
+  }
+}

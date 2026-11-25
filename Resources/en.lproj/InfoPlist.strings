@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "FlatBill";
+"NSCameraUsageDescription" = "FlatBill accesses your camera only when you choose to attach job-site photos to an invoice or estimate. Photos stay locally on your device.";
+"NSPhotoLibraryUsageDescription" = "FlatBill accesses your photo library only when you choose a company logo or attach job-site photos to an invoice or estimate.";
